@@ -8,9 +8,13 @@ public class Pixel {
     private int r, g, b;
     
     public Pixel(int i){
-        int r = 0;
-        int g = 0;
-        int b = 0;
+        
+        
+        
+        
+        int r = (i >> 16) & 0xff;
+        int g = (i >> 8) & 0xff;
+        int b = i & 0xff;
         
         this.r = r;
         this.g = g;
@@ -24,6 +28,54 @@ public class Pixel {
         int gray = (r + g + b) / 3;
         grayscale(gray);
 
+    }
+    
+    public void lessSaturated(){
+        
+        float[] hsb = new float[3];
+        Color.RGBtoHSB(r, g, b, hsb);
+        
+        float h = hsb[0];//All values 0-1
+        float s = hsb[1];
+        float v = hsb[2];
+        
+        s = .5f;
+        
+        int i = Color.HSBtoRGB(h, s, v);
+        
+        int r = (i >> 16) & 0xff;
+        int g = (i >> 8) & 0xff;
+        int b = i & 0xff;
+        
+        this.r = r;
+        this.g = g;
+        this.b = b;
+        
+        
+    }
+    
+    public void moreSaturated(){
+        
+        float[] hsb = new float[3];
+        Color.RGBtoHSB(r, g, b, hsb);
+        
+        float h = hsb[0];//All values 0-1
+        float s = hsb[1];
+        float v = hsb[2];
+        
+        s = 1;
+        
+        int i = Color.HSBtoRGB(h, s, v);
+        
+        int r = (i >> 16) & 0xff;
+        int g = (i >> 8) & 0xff;
+        int b = i & 0xff;
+        
+        this.r = r;
+        this.g = g;
+        this.b = b;
+        
+        
     }
 
     public void toRed() {

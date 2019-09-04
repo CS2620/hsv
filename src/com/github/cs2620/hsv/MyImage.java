@@ -27,7 +27,7 @@ public class MyImage {
      * Run a pixel operation on each pixel in the image
      * @param pi The pixel operation to run
      */
-    public void all(){
+    public void all(PixelInterface pixelInterface){
         
          for(int y = 0; y < bufferedImage.getHeight(); y++){
             for(int x = 0; x < bufferedImage.getWidth(); x++){
@@ -35,7 +35,7 @@ public class MyImage {
                 
                 Pixel p = new Pixel(color_int);
                 
-                
+                pixelInterface.PixelMethod(p);
                 
                bufferedImage.setRGB(x,y,p.getColor().getRGB());
                 
