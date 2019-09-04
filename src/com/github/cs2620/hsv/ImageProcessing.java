@@ -17,7 +17,7 @@ public class ImageProcessing {
         MyImage myImage = new MyImage("in.jpg");
 
         //Call a pixel modifier on each pixel
-        myImage.all(Pixel::toRed);
+       
 
         //Save the image
         myImage.save("out.png");

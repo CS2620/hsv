@@ -8,31 +8,17 @@ public class Pixel {
     private int r, g, b;
     
     public Pixel(int i){
-        int r = (i >> 16) & 0xff;
-        int g = (i >> 8) & 0xff;
-        int b = (i >> 0) & 0xff;
+        int r = 0;
+        int g = 0;
+        int b = 0;
         
         this.r = r;
         this.g = g;
         this.b = b;
     }
 
-    public Pixel(Color inColor) {
-        int r = inColor.getRed();
-        int g = inColor.getGreen();
-        int b = inColor.getBlue();
-        
-        this.r = r;
-        this.g = g;
-        this.b = b;
-
-    }
-
-    public Pixel(int r, int g, int b) {
-        this.r = r;
-        this.g = g;
-        this.b = b;
-    }
+    
+    
 
     public void toGrayscale() {
         int gray = (r + g + b) / 3;
