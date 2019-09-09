@@ -58,4 +58,11 @@ public class MyImage {
         
     }
     
+    public InputStream getInputStream(){
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        ImageIO.write(bufferedImage, "png", os);
+        InputStream is = new ByteArrayInputStream(os.toByteArray());
+        return is;
+    }
+    
 }
